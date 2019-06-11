@@ -1,0 +1,11 @@
+.Calculator {
+    background-color:goldenrod;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(4em);
+    color: white;
+  }
+  
