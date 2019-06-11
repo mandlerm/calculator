@@ -1,0 +1,43 @@
+
+A calculator website which logs calculations as they happen and shares those calculations with everyone connected to the website. For example, user A and user B go to your site at the same time. User A calculates "5 + 5", which equals "10". This is logged below the calculator as "5+5 = 10". User B is updated about this calculation right after user A posts it. Now, user B calculates "3x_4". This calculates to 12 and displays "3x_4=12" right below the prior calculation. User A sees this update immediately after user B posts it. Results should remain between sessions. Only show the last 10 calculations descending from most recent to oldest.
+
+
+
+app-wide state:
+- array of size 10
+- each new calculation takes index 0, all other calculations get moved, calc at index 9 goes away
+- state of this array persists
+
+
+user:
+- name
+- array of calculations (string format is fine)
+
+
+calculator:
+text box, select operation, text box, equals sign, display answer
+
+(select operation)
+drop down
+scroll that allow you to select
+buttons, click on choice
+
+Components:
+- welcome
+- create user_profile
+- calculator
+- calculation_display
+
+- General welcome
+  + if {no_user_profile}:
+      - display{welcome_component}
+      - {create_profile_component} display
+- once profile is created, calculator displays as well as prior calculations
+  + else if {user_profile} display {calculator_component}
+- each user profile keeps state of calculations done by that person [string]
+- app-wide state - keeps array of last 10 calculations, newest goes at index 0 [string] (hot refresh any new calculations)
+- app-wide state persists
+
+
+Where/how to deploy React app
+netlify
