@@ -4,10 +4,10 @@ import './NumberInput.css';
 class NumberInput extends React.Component {
 render() {
     return (
-        <div class="NumberInput">
-        
+        <span class="numberInput">
+        <input></input>
        
-        </div>
+        </span>
     );
 }
 }
