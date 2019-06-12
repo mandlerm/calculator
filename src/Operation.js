@@ -6,21 +6,21 @@ class Operation extends React.Component {
 
         return (
             <span >
-            <label class="container">+
-                <input type="radio" name="radio"/>
-                <span class="checkmark"></span>
+            <label className="container">+
+                <input type="radio" ref={this.add} name="radio"/>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">-
-                <input type="radio" name="radio"/>
-                <span class="checkmark"></span>
+            <label className="container">-
+                <input type="radio" ref={this.sub} name="radio"/>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">*
-                <input type="radio" name="radio"/>
-                <span class="checkmark"></span>
+            <label className="container">*
+                <input type="radio" ref={this.mult} name="radio"/>
+                <span className="checkmark"></span>
             </label>
-            <label class="container">/
-                <input type="radio" name="radio"/>
-                <span class="checkmark"></span>
+            <label className="container">/
+                <input type="radio" ref={this.divide} name="radio"/>
+                <span className="checkmark"></span>
             </label>
             </span>
         

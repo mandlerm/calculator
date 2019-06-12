@@ -2,7 +2,7 @@ import React from 'react';
 import './Welcome.css';
 
 const Welcome = () => (
-    <div class="Welcome-header">
+    <div className="Welcome-header">
           Welcome to the calculator.
         </div>
 );
