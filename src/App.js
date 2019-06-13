@@ -10,7 +10,7 @@ function App() {
     <>
       <Welcome/>
       <Calculator/>
-      <Answer length = {5}/>
+      <Answer length = {5} answerArray = {[]}/>
     </>
   );
 }

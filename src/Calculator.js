@@ -11,30 +11,22 @@ class Calculator extends React.Component {
         super();
         this.state = {
             operation: 'add',
-            mathSentence: ''
+            equation: {}
           };
         this.handleChange = this.handleChange.bind(this);
       }
 
     calculate = (event)  => {
         event.preventDefault();
-        let first = parseInt(this.firstNum.current.value);
-        let second = parseInt(this.secondNum.current.value);
-        let operation = this.state.operation;
-
-        let answer = this.solve(first, second, operation);
-        this.setState({
-            mathSentence: answer
-          });
-        
-        alert(answer)
-        
-       
- 
+        const equation = {
+            first: parseFloat(this.firstNum.current.value),
+            second: parseFloat(this.secondNum.current.value),
+            operation: this.state.operation,
+            answer: this.solve(parseFloat(this.firstNum.current.value), parseFloat(this.secondNum.current.value), this.state.operation)
+        }
     };
 
     solve = (first, second, operation) => {
-    
         switch(operation) {
             case "sub":
                 return `${first} - ${second} = ${first - second}`;
