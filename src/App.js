@@ -17,7 +17,7 @@ class App extends React.Component {
       const equation =  [...this.state.equation];
       equation.unshift(calc);
     this.setState({  
-      equation: equation
+      equation: equation.slice(0,10)
     });
   }
 
@@ -28,11 +28,15 @@ class App extends React.Component {
     
   }
   render(){ 
+
+    let answerArray = this.state.equation;
+    let arraySize = this.state.equation.length;
+
   return (
     <>
       <Welcome/>
-      <Calculator addEquations={this.addEquations} setOperation={this.setOperation}/>
-      <Answer answerArray = {[]}/>
+      <Calculator addEquations={this.addEquations} setOperation={this.setOperation} operation={this.state.operation}/>
+      <Answer length={arraySize} answerArray={answerArray}/>
     </>
   );
 }}

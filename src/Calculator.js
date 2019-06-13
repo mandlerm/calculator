@@ -1,7 +1,6 @@
 import React from 'react';
 import Operation from './Operation.js'
 import './Calculator.css';
-import SentenceDisplay from './SentenceDisplay.js';
 
 
 class Calculator extends React.Component {
@@ -10,7 +9,6 @@ class Calculator extends React.Component {
     
     constructor() {
         super();
-        console.log(this.state)
         this.handleChange = this.handleChange.bind(this);
       }
 
@@ -20,9 +18,9 @@ class Calculator extends React.Component {
             first: parseFloat(this.firstNum.current.value),
             second: parseFloat(this.secondNum.current.value),
             operation: this.props.operation,
-            answer: this.solve(parseFloat(this.firstNum.current.value), parseFloat(this.secondNum.current.value), this.props.operation)
         }
-        
+        equation.answer=this.solve(equation.first, equation.second, equation.operation);
+    
         this.props.addEquations(equation.answer);
     };
 
@@ -40,7 +38,6 @@ class Calculator extends React.Component {
     }
 
     handleChange = (event) => {
-        console.log(event.target.value)
         this.props.setOperation(event.target.value)
         }
 
