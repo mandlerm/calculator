@@ -4,15 +4,37 @@ import './App.css';
 import Welcome from './Welcome';
 import Calculator from './Calculator';
 import Answer from './Answer.js'
+import { jsxClosingElement } from '@babel/types';
 
-function App() {
+class App extends React.Component {
+ 
+  state = { 
+     operation: 'add',
+     equation: []
+  }
+
+  addEquations = calc => {
+      const equation =  [...this.state.equation];
+      equation.unshift(calc);
+    this.setState({  
+      equation: equation
+    });
+  }
+
+  setOperation = op => {
+    this.setState({
+      operation: op
+    }) 
+    
+  }
+  render(){ 
   return (
     <>
       <Welcome/>
-      <Calculator/>
-      <Answer length = {5} answerArray = {[]}/>
+      <Calculator addEquations={this.addEquations} setOperation={this.setOperation}/>
+      <Answer answerArray = {[]}/>
     </>
   );
-}
+}}
 
 export default App;

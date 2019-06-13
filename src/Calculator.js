@@ -10,10 +10,7 @@ class Calculator extends React.Component {
     
     constructor() {
         super();
-        this.state = {
-            operation: 'add',
-            equation: {}
-          };
+        console.log(this.state)
         this.handleChange = this.handleChange.bind(this);
       }
 
@@ -22,13 +19,11 @@ class Calculator extends React.Component {
         const equation = {
             first: parseFloat(this.firstNum.current.value),
             second: parseFloat(this.secondNum.current.value),
-            operation: this.state.operation,
-            answer: this.solve(parseFloat(this.firstNum.current.value), parseFloat(this.secondNum.current.value), this.state.operation)
+            operation: this.props.operation,
+            answer: this.solve(parseFloat(this.firstNum.current.value), parseFloat(this.secondNum.current.value), this.props.operation)
         }
-
-        this.setState({
-            equation
-          });
+        
+        this.props.addEquations(equation.answer);
     };
 
     solve = (first, second, operation) => {
@@ -45,10 +40,9 @@ class Calculator extends React.Component {
     }
 
     handleChange = (event) => {
-        this.setState({
-            operation: event.target.value
-          });
-    };
+        console.log(event.target.value)
+        this.props.setOperation(event.target.value)
+        }
 
 render() {
     return (
@@ -68,7 +62,6 @@ render() {
                         type="radio" 
                         name="radio"
                         value="add"
-                        checked={this.state.operation === "add"}
                         onChange={this.handleChange}    
                     />
                     <span className="checkmark"></span>
@@ -78,7 +71,6 @@ render() {
                         type="radio" 
                         name="radio"
                         value="sub"
-                        checked={this.state.operation === "sub"}
                         onChange={this.handleChange} 
                     />
                     <span className="checkmark"></span>
@@ -88,7 +80,6 @@ render() {
                          type="radio" 
                         name="radio"
                         value="mult"
-                        checked={this.state.operation === "mult"}
                         onChange={this.handleChange}    
                     />
                     <span className="checkmark"></span>
@@ -98,7 +89,6 @@ render() {
                         type="radio" 
                         name="radio"
                         value="div"
-                        checked={this.state.operation === "div"}
                         onChange={this.handleChange}    
                     />
                     <span className="checkmark"></span>
@@ -110,9 +100,7 @@ render() {
                 required
             />
             <button type="submit" >Calculate</button>
-        </form>
-        <SentenceDisplay sentence={this.state.equation.answer}/>
-        
+        </form>    
         </span>
         
     );
