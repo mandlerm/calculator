@@ -1,8 +1,8 @@
 .Calculator {
     background-color:goldenrod;
     min-height: 50vh; 
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
     align-items: center; 
     justify-content: center;
     width: 100%; 

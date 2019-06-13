@@ -1,0 +1,8 @@
+
+  .display {
+    display: block;
+    font-size: 3.5rem;
+    align-items: center; 
+    justify-content: center;
+    width: 50%; 
+  }

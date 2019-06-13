@@ -1,6 +1,7 @@
 import React from 'react';
 import Operation from './Operation.js'
 import './Calculator.css';
+import SentenceDisplay from './SentenceDisplay.js';
 
 
 class Calculator extends React.Component {
@@ -24,6 +25,10 @@ class Calculator extends React.Component {
             operation: this.state.operation,
             answer: this.solve(parseFloat(this.firstNum.current.value), parseFloat(this.secondNum.current.value), this.state.operation)
         }
+
+        this.setState({
+            equation
+          });
     };
 
     solve = (first, second, operation) => {
@@ -106,9 +111,10 @@ render() {
             />
             <button type="submit" >Calculate</button>
         </form>
-    
-        <span> {this.state.answer}</span>
+        <SentenceDisplay sentence={this.state.equation.answer}/>
+        
         </span>
+        
     );
 }
 }
