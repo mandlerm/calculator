@@ -2,7 +2,7 @@
     text-align: center;
     min-height: 25vh;
   }
-  
+
   .Answer-header {
     background-color: crimson;
     min-height: 10vh;
@@ -13,8 +13,10 @@
     font-size: calc(1.5em);
     color: white;
   }
-  
+
   ol {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 3em;
+    text-align: left;
+    margin-left: 30%;
   }

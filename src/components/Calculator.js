@@ -1,12 +1,12 @@
 import React from 'react';
 import Operation from './Operation.js'
-import './Calculator.css';
+import '../css/Calculator.css';
 
 
 class Calculator extends React.Component {
     firstNum = React.createRef();
     secondNum = React.createRef();
-    
+
     constructor() {
         super();
         this.handleChange = this.handleChange.bind(this);
@@ -20,7 +20,7 @@ class Calculator extends React.Component {
             operation: this.props.operation,
         }
         equation.answer=this.solve(equation.first, equation.second, equation.operation);
-    
+
         this.props.addEquations(equation.answer);
     };
 
@@ -45,61 +45,61 @@ render() {
     return (
         <span className="Calculator">
         <p>Enter two numbers and choose your operation of choice. Then click "calculate". If you do not choose an operation, addition will be selected by default. </p>
-        
+
         <form onSubmit={this.calculate}>
-            <input  
-                type="number" 
+            <input
+                type="number"
                 ref={this.firstNum}
-                required 
+                required
             />
-            
+
             <span ref={this.operation}>
                 <label className="container">+
-                    <input 
-                        type="radio" 
+                    <input
+                        type="radio"
                         name="radio"
                         value="add"
-                        onChange={this.handleChange}    
+                        onChange={this.handleChange}
                     />
                     <span className="checkmark"></span>
                 </label>
                 <label className="container">-
-                    <input 
-                        type="radio" 
+                    <input
+                        type="radio"
                         name="radio"
                         value="sub"
-                        onChange={this.handleChange} 
+                        onChange={this.handleChange}
                     />
                     <span className="checkmark"></span>
                 </label>
                 <label className="container">*
-                    <input 
-                         type="radio" 
+                    <input
+                         type="radio"
                         name="radio"
                         value="mult"
-                        onChange={this.handleChange}    
+                        onChange={this.handleChange}
                     />
                     <span className="checkmark"></span>
                 </label>
                 <label className="container">/
-                    <input 
-                        type="radio" 
+                    <input
+                        type="radio"
                         name="radio"
                         value="div"
-                        onChange={this.handleChange}    
+                        onChange={this.handleChange}
                     />
                     <span className="checkmark"></span>
                 </label>
             </span>
-            <input 
-                type="number" 
-                ref={this.secondNum} 
+            <input
+                type="number"
+                ref={this.secondNum}
                 required
             />
             <button type="submit" >Calculate</button>
-        </form>    
+        </form>
         </span>
-        
+
     );
 }
 }

@@ -1,22 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../css/App.css';
 import Welcome from './Welcome';
 import Calculator from './Calculator';
-import Answer from './Answer.js'
-import { jsxClosingElement } from '@babel/types';
+import Answer from './Answer'
+import base from '../base';
+// import { jsxClosingElement } from '@babel/types';
 
 class App extends React.Component {
- 
-  state = { 
+  state = {
      operation: 'add',
      equation: []
-  }
+  };
+
+  // componentDidMount() {
+  //   this.ref = base.syncState('equations', {
+  //     context: this,
+  //     state: 'equation'
+  // });
+  // }
 
   addEquations = calc => {
+    console.log("this.state " + this.state.equation);
       const equation =  [...this.state.equation];
       equation.unshift(calc);
-    this.setState({  
+    this.setState({
       equation: equation.slice(0,10)
     });
   }
@@ -24,11 +31,10 @@ class App extends React.Component {
   setOperation = op => {
     this.setState({
       operation: op
-    }) 
-    
-  }
-  render(){ 
+    })
 
+  }
+  render(){
     let answerArray = this.state.equation;
     let arraySize = this.state.equation.length;
 

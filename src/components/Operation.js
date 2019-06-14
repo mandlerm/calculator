@@ -1,5 +1,5 @@
 import React from 'react';
-import './Operation.css';
+import '../css/Operation.css';
 
 class Operation extends React.Component {
     render() {
@@ -23,16 +23,9 @@ class Operation extends React.Component {
                 <span className="checkmark"></span>
             </label>
             </span>
-        
+
         )
     }
 }
 
 export default Operation;
-
- {/* <div class="wrapper">
-                <button class="add">+</button>
-                <button class="subtract">-</button>
-                <button class="multiply">*</button>
-                <button class="divide">/</button>    
-            </div> */}
